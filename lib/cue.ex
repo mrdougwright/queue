@@ -1,6 +1,6 @@
-defmodule Cue do
+defmodule Queue do
   @moduledoc """
-  Cue is a wrapper around Erlang :queue
+  Queue is a wrapper around Erlang :queue
   """
   use Agent
 
@@ -8,7 +8,7 @@ defmodule Cue do
   Creates a new First In, First Out queue using Erlang's :queue
 
   ## Examples
-      {:ok, pid} = Cue.new(:my_queue)
+      {:ok, pid} = Queue.new(:my_queue)
   """
   def new(name) do
     Agent.start_link(fn -> {[], []} end, name: name)
@@ -18,8 +18,8 @@ defmodule Cue do
   Adds an item to the queue.
 
   ## Examples
-      iex> Cue.new(:my_queue)
-      iex> Cue.push(:my_queue, 1)
+      iex> Queue.new(:my_queue)
+      iex> Queue.push(:my_queue, 1)
       :ok
   """
   def push(name, item) do
@@ -30,10 +30,10 @@ defmodule Cue do
   Pops the oldest item off of the queue.
 
   ## Examples
-      iex> Cue.new(:my_queue)
-      iex> Cue.push(:my_queue, 1)
-      iex> Cue.push(:my_queue, 2)
-      iex> Cue.pop(:my_queue)
+      iex> Queue.new(:my_queue)
+      iex> Queue.push(:my_queue, 1)
+      iex> Queue.push(:my_queue, 2)
+      iex> Queue.pop(:my_queue)
       1
   """
   def pop(name) do
@@ -48,10 +48,10 @@ defmodule Cue do
   Displays the queue as a list, with oldest item last.
 
   ## Examples
-      iex> Cue.new(:my_queue)
-      iex> Cue.push(:my_queue, 1)
-      iex> Cue.push(:my_queue, 2)
-      iex> Cue.queue(:my_queue)
+      iex> Queue.new(:my_queue)
+      iex> Queue.push(:my_queue, 1)
+      iex> Queue.push(:my_queue, 2)
+      iex> Queue.queue(:my_queue)
       [2,1]
   """
   def queue(name) do

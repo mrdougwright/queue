@@ -1,9 +1,9 @@
-defmodule Cue.MixProject do
+defmodule Queue.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :cue,
+      app: :queue,
       version: "0.1.0",
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
@@ -11,11 +11,11 @@ defmodule Cue.MixProject do
       package: package(),
 
       # Docs
-      name: "Cue",
+      name: "Queue",
       description: "A wrapper for Erlang's :queue. Build First In, First Out queues.",
-      source_url: "https://github.com/mrdougwright/cue",
+      source_url: "https://github.com/mrdougwright/queue",
       docs: [
-        main: "Cue",
+        main: "Queue",
         extras: ["README.md"]
       ]
     ]
@@ -38,7 +38,7 @@ defmodule Cue.MixProject do
   defp package do
     [
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/mrdougwright/cue"},
+      links: %{"GitHub" => "https://github.com/mrdougwright/queue"},
       maintainers: ["Doug Wright", "et al"],
       files: ["lib", "mix.exs", "README*"]
     ]
